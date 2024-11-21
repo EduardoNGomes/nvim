@@ -62,3 +62,6 @@ vim.opt.scrolloff = 10
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
+
+-- Nerd Font
+vim.g.have_nerd_font = true
