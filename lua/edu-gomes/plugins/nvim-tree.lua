@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
+
 	config = function()
 		-- Set up keymap to toggle nvim-tree
 		vim.keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
@@ -20,7 +21,7 @@ return {
 				width = 30,
 			},
 			renderer = {
-				group_empty = true,
+				group_empty = false,
 			},
 			filters = {
 				dotfiles = false,
