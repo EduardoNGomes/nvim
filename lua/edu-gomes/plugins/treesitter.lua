@@ -28,6 +28,23 @@ return { -- Highlight, edit, and navigate code
 		},
 		indent = { enable = true, disable = { "ruby" } },
 	},
+
+	-- Config to use folding
+	config = function()
+		vim.o.foldmethod = "expr"
+		vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+		vim.o.foldenable = true
+		vim.o.foldlevel = 99
+
+		-- Custom fold text to show only the opening line
+		vim.opt.foldtext = [[v:lua.CustomFoldText()]]
+
+		-- Define the custom fold text function
+		function CustomFoldText()
+			local line = vim.fn.getline(vim.v.foldstart) -- Get the start of the fold
+			return line .. " ... (" .. (vim.v.foldend - vim.v.foldstart) .. " lines)"
+		end
+	end,
 	-- There are additional nvim-treesitter modules that you can use to interact
 	-- with nvim-treesitter. You should go explore a few and see what interests you:
 	--
