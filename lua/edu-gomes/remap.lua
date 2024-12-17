@@ -3,6 +3,12 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- Disable system clipboard integration for d and c commands
+vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "c", '"_c', { noremap = true, silent = true })
+
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
