@@ -9,6 +9,11 @@ vim.opt.nu = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
+vim.opt.textwidth = 80 -- Automatically break lines at 80 characters
+vim.opt.wrap = true -- Enable line wrapping
+vim.opt.linebreak = true -- Break lines at convenient word boundaries
+vim.opt.breakindent = true -- Indent wrapped lines visually
+
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
