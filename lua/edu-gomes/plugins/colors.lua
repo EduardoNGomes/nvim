@@ -3,8 +3,8 @@ function ChangeTheme(theme)
 
 	vim.cmd.colorscheme(theme)
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	--	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	--	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 vim.keymap.set("n", "<Leader>t1", function()
@@ -16,6 +16,9 @@ end, { desc = "Switch to Catppuccin" })
 vim.keymap.set("n", "<Leader>t3", function()
 	ChangeTheme("tokyodark")
 end, { desc = "Switch to Tokyodark" })
+vim.keymap.set("n", "<Leader>t4", function()
+	ChangeTheme("onedark")
+end, { desc = "Switch to Onedark" })
 
 return {
 	-- TokyoNight theme setup
@@ -76,6 +79,21 @@ return {
 				transparent_background = true,
 			})
 			ChangeTheme("catppuccin")
+		end,
+	},
+
+	-- Onedarkpro theme
+	{
+		"olimorris/onedarkpro.nvim",
+		priority = 1000, -- Ensure it loads first
+		name = "onedarkpro",
+		config = function()
+			require("onedarkpro").setup({
+				options = {
+					transparency = true, -- Enable transparent background
+				},
+			})
+			ChangeTheme("onedark")
 		end,
 	},
 }
